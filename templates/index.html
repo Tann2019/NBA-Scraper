@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .my-table {
+      border-collapse: collapse;
+      border: 1px solid black;
+    }
+    .my-table th, .my-table td {
+      border: 1px solid black;
+      padding: 5px;
+    }
+    </style>
+    <title>NBA Stats</title>
+  </head>
+  <body>
+    <h1>NBA Stats</h1>
+    <table class="my-table">
+      {% for row in data %}
+        {% if loop.index == 1 %}
+          <thead>
+            <tr>
+              {% for header in row %}
+                <th>{{ header }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+        {% else %}
+          <tr>
+            {% for col in row %}
+              <td>{{ col }}</td>
+            {% endfor %}
+          </tr>
+        {% endif %}
+      {% endfor %}
+      </tbody>
+    </table>    </body>
+</html>
